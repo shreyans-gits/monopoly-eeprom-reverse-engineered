@@ -45,7 +45,64 @@ We connected the pins to the arduino and used a cricuit similar to what was show
 Then we used this code to read it
 
 ```Arduino
-//<code to be pasted>
+#include <Wire.h>
+
+// A2, A1, A0 are all grounded (000) -> I2C Address is 0x50
+#define ADDR_Ax 0b000 
+#define ADDR ((0b1010 << 3) + ADDR_Ax) 
+
+void setup() {
+
+  delay(3000);
+  
+  Serial.begin(9600);
+  while (!Serial) {};
+  Wire.begin();
+  
+  Serial.println("--- Starting EEPROM Full Memory Dump (256 Bytes) ---");
+  Serial.println("Addr:  00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F");
+  Serial.println("-----------------------------------------------------");
+
+  for (int i = 0; i < 256; i++) {
+    
+    if (i % 16 == 0) {
+      Serial.print("\n");
+      if (i < 16) Serial.print("0");
+      Serial.print(i, HEX);
+      Serial.print(":  ");
+    }
+    
+    byte data = readI2CByte(i);
+    
+    if (data < 16) {
+      Serial.print("0");
+    }
+    Serial.print(data, HEX);
+    Serial.print(" ");
+    
+    delay(5);
+  }
+  
+  Serial.println("\n-----------------------------------------------------");
+  Serial.println("--- Memory Dump Complete ---");
+}
+
+byte readI2CByte(byte data_addr){
+  byte data = 106; // default
+  
+  Wire.beginTransmission(ADDR);
+  Wire.write(data_addr);
+  Wire.endTransmission();
+  
+  Wire.requestFrom(ADDR, 1);
+
+  delay(2);
+  
+  if(Wire.available()){
+    data = Wire.read();
+  }
+  return data;
+}
 ```
 
 ---
