@@ -30,7 +30,7 @@ We based our wiring on a breadboard diagram found online for reading I²C EEPROM
 
 > With A0–A2 all tied to GND, the I²C address of the chip is **0x50**.
 
-![CIRCUIT](photos/circuit.png)
+![CIRCUIT](../photos/circuit.png)
 
 ---
 
@@ -42,7 +42,7 @@ Since the EEPROM was soldered to the PCB and not in a socket, we couldn't use a 
 2. Connected 8 wires to the EEPROM's pins
 3. Routed them to a breadboard connected to an Arduino UNO
 
-![CLAY SETUP](photos/clay_setup.jpeg)
+![CLAY SETUP](../photos/clay_setup.jpeg)
 
 ---
 

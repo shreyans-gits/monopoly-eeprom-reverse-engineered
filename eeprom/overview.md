@@ -13,7 +13,7 @@
 
 When we opened the Monopoly Ultimate Banking unit, we found three components on the PCB. Two of them were covered in epoxy, making them inaccessible. The third — the AT24C02D EEPROM — was exposed.
 
-![HIGHLIGHTED EEPROM](photos/eeprom_highlighted.jpeg)
+![HIGHLIGHTED EEPROM](../photos/eeprom_highlighted.jpeg)
 
 ---
 

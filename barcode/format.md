@@ -12,7 +12,7 @@ Each Monopoly Ultimate Banking card has a strip on the back with **10 bars** (bl
 - **Parity bars:** The **middle 2 bars** (positions 5 and 6) are a parity check and are not part of the data
 - **Data bars:** The remaining **8 bars** (positions 1–4 and 7–10) carry the actual card value
 
-![CARD](photos/card.jpeg)
+![CARD](../photos/card.jpeg)
 
 ---
 
